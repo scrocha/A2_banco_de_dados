@@ -75,8 +75,8 @@ INSERT INTO Comentario VALUES (2, 6, 'ban', 0, '2027-09-22 16:40', 5);
 INSERT INTO Comentario VALUES (3, 4, 'hj tem clutch', 150, '2027-12-05 19:15', 6);
 INSERT INTO Comentario VALUES (4, 3, 'como da sub?', 0, '2028-03-30 08:05', 5);
 INSERT INTO Comentario VALUES (5, 5, 'peguei ad :(', 0, '2028-07-18 14:30', 1);
-INSERT INTO Comentario VALUES (6, 1, 'casimiro eu te amo', 1000, '2028-10-29 22:10', 4);
-INSERT INTO Comentario VALUES (7, 1, 'vasco da gama', 100, '2029-02-02 07:55', 3);
+INSERT INTO Comentario VALUES (6, 1, 'casimiro eu te amo', 1000, '2028-10-29 22:10', 7);
+INSERT INTO Comentario VALUES (7, 1, 'vasco da gama', 100, '2029-02-02 07:55', 2);
 INSERT INTO Comentario VALUES (8, 2, 'algm pra jogar cs?', 50, '2029-05-11 11:20', 2);
 
 INSERT INTO AssisteTransmi VALUES (1, 2, 'Espectador');
