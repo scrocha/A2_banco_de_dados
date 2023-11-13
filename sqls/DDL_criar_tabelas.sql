@@ -70,11 +70,11 @@ CREATE TABLE IF NOT EXISTS ChatSussurro
 
 CREATE TABLE IF NOT EXISTS AssinaCanal
 (
+  IdUsuarioCanal INT NOT NULL,
+  IdUsuarioEspectador INT NOT NULL,
   InicioAssina DATE NOT NULL,
   DuracaoAssina INT NOT NULL,
   FimAssina DATE NOT NULL,
-  IdUsuarioEspectador INT NOT NULL,
-  IdUsuarioCanal INT NOT NULL,
   PRIMARY KEY (IdUsuarioEspectador, IdUsuarioCanal),
   FOREIGN KEY (IdUsuarioEspectador) REFERENCES Espectador(IdUsuario),
   FOREIGN KEY (IdUsuarioCanal) REFERENCES Canal(IdUsuario)
@@ -83,11 +83,11 @@ CREATE TABLE IF NOT EXISTS AssinaCanal
 CREATE TABLE IF NOT EXISTS Transmissao
 (
   IdTransmi INT NOT NULL,
-  TituloTransmi VARCHAR(50) NOT NULL,
   CategoriaTransmi VARCHAR(50) NOT NULL,
+  TituloTransmi VARCHAR(50) NOT NULL,
   InicioTransmi DATE NOT NULL,
-  NEspecTransmi INT NOT NULL,
   FimTransmi DATE NOT NULL,
+  NEspecTransmi INT NOT NULL,
   IdUsuarioCanal INT NOT NULL,
   PRIMARY KEY (IdTransmi),
   FOREIGN KEY (IdUsuarioCanal) REFERENCES Canal(IdUsuario)
@@ -111,11 +111,11 @@ CREATE TABLE IF NOT EXISTS Clipe
 CREATE TABLE IF NOT EXISTS Comentario
 (
   IdComentario INT NOT NULL,
-  DataComentario DATE NOT NULL,
+  IdTransmi INT NOT NULL,
   ConteudoComentario VARCHAR(200) NOT NULL,
   QuantidadeBits INT,
+  DataComentario DATE NOT NULL,
   IdUsuarioEspectador INT NOT NULL,
-  IdTransmi INT NOT NULL,
   PRIMARY KEY (IdComentario),
   FOREIGN KEY (IdUsuarioEspectador) REFERENCES Espectador(IdUsuario),
   FOREIGN KEY (IdTransmi) REFERENCES Transmissao(IdTransmi)
@@ -123,9 +123,9 @@ CREATE TABLE IF NOT EXISTS Comentario
 
 CREATE TABLE IF NOT EXISTS AssisteTransmi
 (
-  CargoEspectador VARCHAR(50),
-  IdUsuarioEspectador INT NOT NULL,
   IdTransmi INT NOT NULL,
+  IdUsuarioEspectador INT NOT NULL,
+  CargoEspectador VARCHAR(50),
   PRIMARY KEY (IdUsuarioEspectador, IdTransmi),
   FOREIGN KEY (IdUsuarioEspectador) REFERENCES Espectador(IdUsuario),
   FOREIGN KEY (IdTransmi) REFERENCES Transmissao(IdTransmi)
