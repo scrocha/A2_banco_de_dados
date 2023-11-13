@@ -1,34 +1,40 @@
-CREATE TABLE Usuario
+--- Feito em 13/11/2023
+
+CREATE SCHEMA IF NOT EXISTS Twitch;
+
+SET SEARCH_PATH = Twitch;
+
+CREATE TABLE IF NOT EXISTS Usuario
 (
   IdUsuario INT NOT NULL,
-  NomeUsuario VARCHAR(50) NOT NULL,
-  SenhaUsuario VARCHAR(40) NOT NULL,
+  NomeUsuario VARCHAR(30) NOT NULL,
+  SenhaUsuario VARCHAR(15) NOT NULL,
   EmailUsuario VARCHAR(100) NOT NULL,
   PRIMARY KEY (IdUsuario)
 );
 
-CREATE TABLE Canal
+CREATE TABLE IF NOT EXISTS Canal
 (
-  PlanejamentoLive VARCHAR(150) NOT NULL,
-  BioCanal VARCHAR(200) NOT NULL,
+  IdUsuario INT NOT NULL,
+  PlanejamentoLive VARCHAR(50) NOT NULL,
+  BioCanal VARCHAR(250) NOT NULL,
   NSeguidoresCanal INT NOT NULL,
-  IdUsuario INT NOT NULL,
   PRIMARY KEY (IdUsuario),
   FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario)
 );
 
-CREATE TABLE Espectador
+CREATE TABLE IF NOT EXISTS Espectador
 (
   IdUsuario INT NOT NULL,
   PRIMARY KEY (IdUsuario),
   FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario)
 );
 
-CREATE TABLE Doacao
+CREATE TABLE IF NOT EXISTS Doacao
 (
-  QuantiaDoacao INT NOT NULL,
-  MensagemDoacao VARCHAR(200),
   IdDoacao INT NOT NULL,
+  QuantiaDoacao Money NOT NULL,
+  MensagemDoacao VARCHAR(200),
   DataDoacao DATE NOT NULL,
   IdUsuarioCanal INT NOT NULL,
   IdUsuarioEspectador INT NOT NULL,
@@ -37,14 +43,14 @@ CREATE TABLE Doacao
   FOREIGN KEY (IdUsuarioEspectador) REFERENCES Espectador(IdUsuario)
 );
 
-CREATE TABLE TagTransmi
+CREATE TABLE IF NOT EXISTS TagTransmi
 (
   IdTagTransmi INT NOT NULL,
   NomeTag VARCHAR(50) NOT NULL,
   PRIMARY KEY (IdTagTransmi)
 );
 
-CREATE TABLE ChatSussurro
+CREATE TABLE IF NOT EXISTS ChatSussurro
 (
   IdSussurro INT NOT NULL,
   DataSussurro DATE NOT NULL,
@@ -56,7 +62,7 @@ CREATE TABLE ChatSussurro
   FOREIGN KEY (IdUsuarioDestinatario) REFERENCES Usuario(IdUsuario)
 );
 
-CREATE TABLE AssinaA
+CREATE TABLE IF NOT EXISTS AssinaA
 (
   InicioAssina DATE NOT NULL,
   DuracaoAssina INT NOT NULL,
@@ -68,11 +74,11 @@ CREATE TABLE AssinaA
   FOREIGN KEY (IdUsuarioCanal) REFERENCES Canal(IdUsuario)
 );
 
-CREATE TABLE Transmissao
+CREATE TABLE IF NOT EXISTS Transmissao
 (
-  CategoriaTransmi VARCHAR(50) NOT NULL,
-  TituloTransmi VARCHAR(50) NOT NULL,
   IdTransmi INT NOT NULL,
+  TituloTransmi VARCHAR(50) NOT NULL,
+  CategoriaTransmi VARCHAR(50) NOT NULL,
   InicioTransmi DATE NOT NULL,
   NEspecTransmi INT NOT NULL,
   FimTransmi DATE NOT NULL,
@@ -81,11 +87,11 @@ CREATE TABLE Transmissao
   FOREIGN KEY (IdUsuarioCanal) REFERENCES Canal(IdUsuario)
 );
 
-CREATE TABLE Clipe
+CREATE TABLE IF NOT EXISTS Clipe
 (
+  IdClipe INT NOT NULL,
   TituloClipe VARCHAR(200) NOT NULL,
   LinkClipe VARCHAR(200) NOT NULL,
-  IdClipe INT NOT NULL,
   NVisualizacoesClipe INT NOT NULL,
   NCurtidasClipe INT NOT NULL,
   DataClipe DATE NOT NULL,
@@ -96,7 +102,7 @@ CREATE TABLE Clipe
   FOREIGN KEY (IdUsuarioEspectador) REFERENCES Espectador(IdUsuario)
 );
 
-CREATE TABLE Comentario
+CREATE TABLE IF NOT EXISTS Comentario
 (
   IdComentario INT NOT NULL,
   DataComentario DATE NOT NULL,
@@ -109,7 +115,7 @@ CREATE TABLE Comentario
   FOREIGN KEY (IdTransmi) REFERENCES Transmissao(IdTransmi)
 );
 
-CREATE TABLE AssisteA
+CREATE TABLE IF NOT EXISTS AssisteA
 (
   CargoEspectador VARCHAR(50),
   IdUsuarioEspectador INT NOT NULL,
@@ -119,7 +125,7 @@ CREATE TABLE AssisteA
   FOREIGN KEY (IdTransmi) REFERENCES Transmissao(IdTransmi)
 );
 
-CREATE TABLE TransmiPossui
+CREATE TABLE IF NOT EXISTS TransmiPossui
 (
   IdTransmi INT NOT NULL,
   IdTagTransmi INT NOT NULL,
