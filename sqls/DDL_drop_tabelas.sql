@@ -1,5 +1,5 @@
 /*
-Arquivo de comandos para resetar as tabelas
+Arquivo de comandos para remover as tabelas do banco de dados da Twitch.
 */
 
 SET SEARCH_PATH = Twitch;
