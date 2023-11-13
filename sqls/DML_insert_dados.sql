@@ -20,6 +20,13 @@ INSERT INTO Canal VALUES (9, 'planejamento_9.png', 'bio_9.txt', 2405668);
 INSERT INTO Canal VALUES (11, 'planejamento_11.png', 'bio_11.txt', 292080);
 INSERT INTO Canal VALUES (12, 'planejamento_12.png', 'bio_12.txt', 282231);
 
+INSERT INTO Espectador VALUES (1)
+INSERT INTO Espectador VALUES (2)
+INSERT INTO Espectador VALUES (5)
+INSERT INTO Espectador VALUES (6)
+INSERT INTO Espectador VALUES (7)
+INSERT INTO Espectador VALUES (10)
+
 INSERT INTO ChatSussurro VALUES (1, '2023-09-23 12:00:00', 'oi', 1, 2);
 INSERT INTO ChatSussurro VALUES (2, '2000-10-10 03:00:00', 'BOooooOOo', 3, 4);
 INSERT INTO ChatSussurro VALUES (3, '2000-11-17 14:06:09', 'Manda o pix ai', 5, 8);
