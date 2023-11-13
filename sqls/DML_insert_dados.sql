@@ -63,12 +63,12 @@ INSERT INTO Transmissao VALUES (4, 'Esporte', 'Flamengo x São Paulo', '2019-06-
 INSERT INTO Transmissao VALUES (5, 'League of Legends', 'dando aula na ranked', '2019-09-29 08:25:55', '2019-09-30 00:00:55', 95, 12);
 INSERT INTO Transmissao VALUES (6, 'VALORANT', 'ODDIK X MIBR GameChangers', '2021-12-05 12:10:10', '2021-12-05 13:40:10', 2058, 3);
 
-INSERT INTO Clipe VALUES (1, 'Ta de CHEAT?', 'https://www.twitch.tv/Gaules/clip/TadeCHEAT', 250, 100, '2022-05-15 10:30:45', 6);
-INSERT INTO Clipe VALUES (2, 'que balinha', 'https://www.twitch.tv/Gaules/clip/quebalinha', 1000, 321, '2022-08-28 15:15:30', 1);
-INSERT INTO Clipe VALUES (3, 'tropeçou e caiu kkkkkk', 'https://www.twitch.tv/paulanobre/clip/tropecouecaiu', 9, 1, '2022-12-04 20:00:00', 3);
-INSERT INTO Clipe VALUES (4, 'MIBR PERDEU', 'https://www.twitch.tv/YoDa/clip/MIBRPERDEU', 741, 4, '2023-02-19 08:45:20', 2);
-INSERT INTO Clipe VALUES (5, 'clutch do KSCERATO', 'https://www.twitch.tv/nahzinhaa/clip/clutchdoKSCERATO', 1, 0, '2023-06-02 14:20:55', 6);
-INSERT INTO Clipe VALUES (6, 'Fim do primeiro mapa mibr', 'https://www.twitch.tv/Gaules/clip/Fimdoprimeiromapamibr', 34900, 1023, '2023-10-10 17:55:10', 2);
+INSERT INTO Clipe VALUES (1, 'Ta de CHEAT?', 'https://www.twitch.tv/Gaules/clip/TadeCHEAT', 250, 100, '2022-05-15 10:30:45', 6, 2);
+INSERT INTO Clipe VALUES (2, 'que balinha', 'https://www.twitch.tv/Gaules/clip/quebalinha', 1000, 321, '2022-08-28 15:15:30', 1, 7);
+INSERT INTO Clipe VALUES (3, 'tropeçou e caiu kkkkkk', 'https://www.twitch.tv/paulanobre/clip/tropecouecaiu', 9, 1, '2022-12-04 20:00:00', 3, 1);
+INSERT INTO Clipe VALUES (4, 'MIBR PERDEU', 'https://www.twitch.tv/YoDa/clip/MIBRPERDEU', 741, 4, '2023-02-19 08:45:20', 2, 5);
+INSERT INTO Clipe VALUES (5, 'clutch do KSCERATO', 'https://www.twitch.tv/nahzinhaa/clip/clutchdoKSCERATO', 1, 0, '2023-06-02 14:20:55', 6, 2);
+INSERT INTO Clipe VALUES (6, 'Fim do primeiro mapa mibr', 'https://www.twitch.tv/Gaules/clip/Fimdoprimeiromapamibr', 34900, 1023, '2023-10-10 17:55:10', 2, 1);
 
 INSERT INTO Comentario VALUES (1, 4, 'ele é mt ruim', 0, '2027-06-14 10:25', 6);
 INSERT INTO Comentario VALUES (2, 6, 'ban', 0, '2027-09-22 16:40', 5);
