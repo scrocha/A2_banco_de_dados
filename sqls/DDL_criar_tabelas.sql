@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS ChatSussurro
   FOREIGN KEY (IdUsuarioDestinatario) REFERENCES Usuario(IdUsuario)
 );
 
-CREATE TABLE IF NOT EXISTS AssinaA
+CREATE TABLE IF NOT EXISTS AssinaCanal
 (
   InicioAssina DATE NOT NULL,
   DuracaoAssina INT NOT NULL,
@@ -115,7 +115,7 @@ CREATE TABLE IF NOT EXISTS Comentario
   FOREIGN KEY (IdTransmi) REFERENCES Transmissao(IdTransmi)
 );
 
-CREATE TABLE IF NOT EXISTS AssisteA
+CREATE TABLE IF NOT EXISTS AssisteTransmi
 (
   CargoEspectador VARCHAR(50),
   IdUsuarioEspectador INT NOT NULL,
