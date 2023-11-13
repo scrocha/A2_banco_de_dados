@@ -1,5 +1,11 @@
 --- Feito em 13/11/2023
 
+/*
+Arquivo para criar o banco de dados da Twitch a partir de Engenharia Reversa para a disciplina de
+Banco de Dados, Alunos: Sillas, Luís Felipe e Manuela.
+*/
+
+
 CREATE SCHEMA IF NOT EXISTS Twitch;
 
 SET SEARCH_PATH = Twitch;
