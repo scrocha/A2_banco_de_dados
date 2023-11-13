@@ -20,12 +20,12 @@ INSERT INTO Canal VALUES (9, 'planejamento_9.png', 'bio_9.txt', 2405668);
 INSERT INTO Canal VALUES (11, 'planejamento_11.png', 'bio_11.txt', 292080);
 INSERT INTO Canal VALUES (12, 'planejamento_12.png', 'bio_12.txt', 282231);
 
-INSERT INTO Espectador VALUES (1)
-INSERT INTO Espectador VALUES (2)
-INSERT INTO Espectador VALUES (5)
-INSERT INTO Espectador VALUES (6)
-INSERT INTO Espectador VALUES (7)
-INSERT INTO Espectador VALUES (10)
+INSERT INTO Espectador VALUES (1);
+INSERT INTO Espectador VALUES (2);
+INSERT INTO Espectador VALUES (5);
+INSERT INTO Espectador VALUES (6);
+INSERT INTO Espectador VALUES (7);
+INSERT INTO Espectador VALUES (10);
 
 INSERT INTO Doacao VALUES (1, 100, ' ', '2023-02-15 10:30:45', 9, 6);
 INSERT INTO Doacao VALUES (2, 5, 'G? 3? X?', '2023-06-28 15:15:30', 4, 10);
