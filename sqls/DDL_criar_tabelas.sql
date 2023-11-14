@@ -6,9 +6,17 @@ Banco de Dados, Alunos: Sillas, Luís Felipe e Manuela.
 */
 
 
+/*
+Cria um Schema da Twitch caso ele não exista e o seleciona como path para criar as tabelas.
+*/
+
 CREATE SCHEMA IF NOT EXISTS Twitch;
 
 SET SEARCH_PATH = Twitch;
+
+/*
+Cria a tabela de usuários do banco de dados
+*/
 
 CREATE TABLE IF NOT EXISTS Usuario
 (
@@ -18,6 +26,10 @@ CREATE TABLE IF NOT EXISTS Usuario
   EmailUsuario VARCHAR(100) NOT NULL,
   PRIMARY KEY (IdUsuario)
 );
+
+/*
+Cria a tabela de canal do banco de dados que são usuários especializados.
+*/
 
 CREATE TABLE IF NOT EXISTS Canal
 (
@@ -29,12 +41,20 @@ CREATE TABLE IF NOT EXISTS Canal
   FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario)
 );
 
+/*
+Cria a tabela de espectador do banco de dados que são usuários especializados.
+*/
+
 CREATE TABLE IF NOT EXISTS Espectador
 (
   IdUsuario INT NOT NULL,
   PRIMARY KEY (IdUsuario),
   FOREIGN KEY (IdUsuario) REFERENCES Usuario(IdUsuario)
 );
+
+/*
+Cria a tabela de doação para que canais possam receber doações de espectadores.
+*/
 
 CREATE TABLE IF NOT EXISTS Doacao
 (
@@ -49,12 +69,20 @@ CREATE TABLE IF NOT EXISTS Doacao
   FOREIGN KEY (IdUsuarioEspectador) REFERENCES Espectador(IdUsuario)
 );
 
+/*
+Cria a tabela de tag de transmissão onde cada transmissão pode possuir tags.
+*/
+
 CREATE TABLE IF NOT EXISTS TagTransmi
 (
   IdTagTransmi INT NOT NULL,
   NomeTag VARCHAR(50) NOT NULL,
   PRIMARY KEY (IdTagTransmi)
 );
+
+/*
+Cria a tabela de ChatSussurro que é por onde usuários podem enviar mensagens para outros usuários
+*/
 
 CREATE TABLE IF NOT EXISTS ChatSussurro
 (
@@ -68,6 +96,11 @@ CREATE TABLE IF NOT EXISTS ChatSussurro
   FOREIGN KEY (IdUsuarioDestinatario) REFERENCES Usuario(IdUsuario)
 );
 
+/*
+Cria a tabela de assinar canais que relaciona um espectador com um canal, onde um espectador assina à um canal,
+com uma duração e um usuário não pode assinar o mesmo canal enquanto ele já estiver em uma assinatura com este canal.
+*/
+
 CREATE TABLE IF NOT EXISTS AssinaCanal
 (
   IdUsuarioCanal INT NOT NULL,
@@ -79,6 +112,10 @@ CREATE TABLE IF NOT EXISTS AssinaCanal
   FOREIGN KEY (IdUsuarioEspectador) REFERENCES Espectador(IdUsuario),
   FOREIGN KEY (IdUsuarioCanal) REFERENCES Canal(IdUsuario)
 );
+
+/*
+Cria a tabela de transmissão onde cada transmissão é feita por um canal.
+*/
 
 CREATE TABLE IF NOT EXISTS Transmissao
 (
@@ -92,6 +129,10 @@ CREATE TABLE IF NOT EXISTS Transmissao
   PRIMARY KEY (IdTransmi),
   FOREIGN KEY (IdUsuarioCanal) REFERENCES Canal(IdUsuario)
 );
+
+/*
+Cria a tabela de clipe onde o clipe é feito por um espectador em uma transmissão.
+*/
 
 CREATE TABLE IF NOT EXISTS Clipe
 (
@@ -108,6 +149,10 @@ CREATE TABLE IF NOT EXISTS Clipe
   FOREIGN KEY (IdUsuarioEspectador) REFERENCES Espectador(IdUsuario)
 );
 
+/*
+Cria a tabela comentário onde cada comentário é feito por um espectador em uma transmissão.
+*/
+
 CREATE TABLE IF NOT EXISTS Comentario
 (
   IdComentario INT NOT NULL,
@@ -121,6 +166,11 @@ CREATE TABLE IF NOT EXISTS Comentario
   FOREIGN KEY (IdTransmi) REFERENCES Transmissao(IdTransmi)
 );
 
+/*
+Cria a tabela assiste transmissão que relaciona um espectador com uma transmissão caso o espectador
+assista a transmissão.
+*/
+
 CREATE TABLE IF NOT EXISTS AssisteTransmi
 (
   IdTransmi INT NOT NULL,
@@ -130,6 +180,10 @@ CREATE TABLE IF NOT EXISTS AssisteTransmi
   FOREIGN KEY (IdUsuarioEspectador) REFERENCES Espectador(IdUsuario),
   FOREIGN KEY (IdTransmi) REFERENCES Transmissao(IdTransmi)
 );
+
+/*
+Cria a tabela transmissão possui que relaciona a transmissão com as tags q ela possui.
+*/
 
 CREATE TABLE IF NOT EXISTS TransmiPossui
 (
