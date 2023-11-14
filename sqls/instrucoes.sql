@@ -1,5 +1,5 @@
 /*
-Instrução SQL que mostra as informações das transmissões referentes aos clipes. Mostra a quantidade, o número total de visualizações e de curtidas dos clipes, agrupando pelo título da transmissão. 
+Instrução SQL que mostra as informações das transmissões referentes aos clipes. Exibe a quantidade, o número total de visualizações e de curtidas dos clipes, agrupando pelo título da transmissão. 
 */
 SELECT t.titulotransmi, COUNT(c.idtransmi) AS numclipes, SUM(c.nvisualizacoesclipe) AS visualizacoesclipes, SUM(c.ncurtidasclipe) AS curtidasclipes
 FROM clipe c, transmissao t
@@ -19,7 +19,7 @@ ORDER BY visualizacoesclipes desc;
 
 
 /*
-Instrução SQL que mostra as informações dos comentários de espectadores. Mostra a quantidade de bits doados e o número total de comentários, agrupando pelo nome do usuário que fez o comentário. 
+Instrução SQL que mostra as informações dos comentários de espectadores. Exibe a quantidade de bits doados e o número total de comentários, agrupando pelo nome do usuário que fez o comentário. 
 */
 SELECT u.nomeusuario, SUM(c.quantidadebits) AS BitsDoados, COUNT(c.idusuarioespectador) AS NumComentarios
 FROM usuario u, comentario c
