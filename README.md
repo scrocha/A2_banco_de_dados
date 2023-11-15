@@ -12,3 +12,6 @@ Execute os passos na ordem definida (caso necessário execute o passo 0):
 
 3. Escolha algum dos 3 comandos do arquivo ``instrucoes.sql`` para executar (suas explicações estão comentadas no arquivo).
 
+
+Caso queira excluir os dados do banco, execute o arquivo ``DDL_drop_tabelas.sql``.
+
