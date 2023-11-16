@@ -19,21 +19,34 @@ ORDER BY visualizacoesclipes desc;
 
 
 /*
-Instrução SQL que mostra as informações dos comentários de espectadores. Exibe a quantidade de bits doados e o número total de comentários, agrupando pelo nome do usuário que fez o comentário. 
+Instrução SQL que mostra as informações dos Canais. Exibe o número de seguidores do canal, o total recebido com doações de espectadores o número total de comentários feitos em lives do canal
+e a quantidade de bits doados, agrupa pelo usuário dono no canal. 
 */
-SELECT u.nomeusuario, SUM(c.quantidadebits) AS BitsDoados, COUNT(c.idusuarioespectador) AS NumComentarios
-FROM usuario u, comentario c
-WHERE u.idusuario = c.idusuarioespectador
+SELECT u.nomeusuario AS Canal, SUM(ca.nseguidorescanal) AS NumSeguidores, SUM(d.quantiadoacao) AS DoacoesRecebidas, COUNT(c.idcomentario) AS NumComentarios, SUM(c.quantidadebits) AS BitsRecebidos
+FROM usuario u, canal ca, comentario c, doacao d, transmissao t
+WHERE ca.idusuario = u.idusuario AND ca.idusuario = d.idusuariocanal AND ca.idusuario = t.idusuariocanal AND t.idtransmi = c.idtransmi
 GROUP BY u.nomeusuario
-ORDER BY BitsDoados desc;
+ORDER BY NumSeguidores desc;
 
 /* Resultado: 
-    nomeusuario    | bitsdoados | numcomentarios
--------------------+------------+----------------
- XipXapXD          |       1000 |              1
- Sillas_fps_2011   |        150 |              2
- Pedro_games       |        150 |              2
- marçadovolei      |          0 |              2
- Luizinha_gameplay |          0 |              1
-(5 rows)
+   canal    | numseguidores | doacoesrecebidas | numcomentarios | bitsrecebidos
+------------+---------------+------------------+----------------+---------------
+ YoDa       |       4811336 |          $200.00 |              2 |          1100
+ Gaules     |       4000076 |            $5.00 |              1 |             0
+ Casimito   |       3747040 |        $1,000.00 |              1 |             0
+ paulanobre |        649756 |           $10.00 |              1 |            50
+ nahzinhaa  |        584160 |          $100.00 |              2 |           150
+ yulla      |        282231 |       $30,000.00 |              1 |             0
+(6 rows)
 */
+
+
+/*
+Instrução SQL que mostra as informações dos comentários de espectadores. Exibe a quantidade de bits doados e o número total de comentários, agrupando pelo nome do usuário que fez o comentário. 
+*/
+SELECT t.categoriatransmi AS Categorias, SUM(t.nespectransmi) AS Espectadores_Por_Categoria, SUM(), COUNT(c.idtransmi) AS NumClipes
+FROM transmissao t, clipe c,
+
+
+
+
