@@ -5,7 +5,7 @@ SELECT t.titulotransmi, COUNT(c.idtransmi) AS numclipes, SUM(c.nvisualizacoescli
 FROM clipe c, transmissao t
 WHERE c.idtransmi = t.idtransmi
 GROUP BY t.titulotransmi
-ORDER BY visualizacoesclipes desc;
+ORDER BY visualizacoesclipes DESC;
 
 /* Resultado: 
         titulotransmi        | numclipes | visualizacoesclipes | curtidasclipes
@@ -42,11 +42,25 @@ ORDER BY NumSeguidores desc;
 
 
 /*
-Instrução SQL que mostra as informações dos comentários de espectadores. Exibe a quantidade de bits doados e o número total de comentários, agrupando pelo nome do usuário que fez o comentário. 
+Instrução SQL que mostra as informações das categorias de Transmissões. Exibe a quantidade de espectadores da categoria, o número de clipes da categoria, número de visualizações e likes dos
+clipes da categoria, agrupando pelo nome da categoria. 
 */
-SELECT t.categoriatransmi AS Categorias, SUM(t.nespectransmi) AS Espectadores_Por_Categoria, SUM(), COUNT(c.idtransmi) AS NumClipes
-FROM transmissao t, clipe c,
+SELECT t.categoriatransmi AS Categorias, SUM(t.nespectransmi) AS Num_Espectadores_Categoria, SUM(cl.Num_Clipes) AS Num_Clipes_Por_Categoria, SUM(cl.Vis_Live) AS Vis_Clipe_Por_Categoria, SUM(cl.Likes_Live) AS Likes_Clipes_Por_Categoria
+FROM transmissao t
+LEFT JOIN (SELECT cl.idtransmi, COUNT(DISTINCT cl.idclipe) AS Num_Clipes, SUM(cl.nvisualizacoesclipe) AS Vis_Live, SUM(cl.ncurtidasclipe) AS Likes_Live FROM clipe cl GROUP BY cl.idtransmi) cl
+ON t.idtransmi = cl.idtransmi
+GROUP BY t.categoriatransmi
+ORDER BY Num_Espectadores_Categoria DESC;
 
-
-
+/* Resultado: 
+            categorias            | num_espectadores_categoria | num_clipes_por_categoria | vis_clipe_por_categoria | likes_clipes_por_categoria
+----------------------------------+----------------------------+--------------------------+-------------------------+----------------------------
+ Esporte                          |                    1000000 |                          |                         |
+ Counter-Strike: Global Offensive |                     700000 |                        2 |                   35641 |                       1027
+ VALORANT                         |                       2058 |                        2 |                     251 |                        100
+ Minecraft                        |                       1345 |                        1 |                    1000 |                        321
+ Just Chatting                    |                        120 |                        1 |                       9 |                          1
+ League of Legends                |                         95 |                          |                         |
+(6 rows)
+*/
 
