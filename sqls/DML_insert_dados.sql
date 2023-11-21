@@ -22,6 +22,8 @@ INSERT INTO Canal VALUES (12, 'planejamento_12.png', 'bio_12.txt', 282231);
 
 INSERT INTO Espectador VALUES (1);
 INSERT INTO Espectador VALUES (2);
+INSERT INTO Espectador VALUES (3);
+INSERT INTO Espectador VALUES (4);
 INSERT INTO Espectador VALUES (5);
 INSERT INTO Espectador VALUES (6);
 INSERT INTO Espectador VALUES (7);
