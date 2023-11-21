@@ -1,2 +1,2 @@
 
-CREATE INDEX Nome_de_Usuário ON Twitch.Usuario (NomeUsuario);
+CREATE INDEX Nome_de_Usuario ON Twitch.Usuario (NomeUsuario);
